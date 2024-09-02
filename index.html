@@ -1,28 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Girlfriend's Day Card</title>
-    <meta name="description" content="Will you be my valentine?">
-    <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16">
-    <link rel="preload" href="/_next/static/media/c9a5bc6a7c948fb0-s.p.woff2" as="font" crossorigin="" type="font/woff2">
-    <link rel="preload" as="image" href="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif">
-    <link rel="stylesheet" href="css/554796c3191cdae8.css" crossorigin="" data-precedence="next">
-    <script src="js/fd9d1056-534a3af521b04580.js" async="" crossorigin=""></script>
-    <script src="js/69-5788959f6f1d2963.js" async="" crossorigin=""></script>
-    <script src="js/main-app-f5c8d25c8479457f.js" async="" crossorigin=""></script>
-    <script src="js/page-a53c2c10bc9b282e.js" async=""></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rashu's Feelings</title>
+    <style>
+        body {
+            background-color: lightpink;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            height: 100vh;
+        }
+        .fixed-image {
+            position: fixed;
+            bottom: 80px;
+            width: 150px;
+            height: auto;
+        }
+        .movable-image {
+            position: absolute;
+            bottom: 120px;
+            width: 150px;
+            height: auto;
+            transition: bottom 0.3s ease;
+        }
+        .text {
+            color: black;
+            margin: 10px 0;
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        .little-lovies {
+            background-color: green;
+        }
+        .angry {
+            background-color: red;
+        }
+    </style>
 </head>
-<body class="__className_e66fe9">
-    <div class="flex flex-col items-center justify-center h-screen -mt-16">
-        <img class="h-[200px]" src="images/cute-love-bear-roses-ou7zho5oosxnpo6k.gif">
-        <h1 class="text-4xl my-4 text-center">Happy Girlfriend Day to the Most Beautiful Girl in the World!, forgive me?</h1>
-        <div class="flex flex-wrap flex-col md:flex-row gap-4 items-center justify-center">
-            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" style="font-size:16px">Yes</button>
-            <button class=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">No</button>
+<body>
+    <div class="container">
+        <img src="fixed-image.png" alt="Fixed Image" class="fixed-image">
+        <img src="movable-image.png" alt="Movable Image" class="movable-image" id="movableImage">
+        <div class="text">How is Rashu feeling?</div>
+        <div class="buttons">
+            <button class="little-lovies" onclick="moveImage(-50)">Little Lovies</button>
+            <button class="angry" onclick="moveImage(50)">Angry</button>
         </div>
     </div>
-    <script src="js/webpack-7086a7543d1dc029.js" crossorigin="" async=""></script>
+    <script>
+        let imagePosition = 0;
+        const movableImage = document.getElementById('movableImage');
+        
+        function moveImage(distance) {
+            imagePosition += distance;
+            movableImage.style.bottom = (120 + imagePosition) + 'px';
+        }
+    </script>
 </body>
 </html>
